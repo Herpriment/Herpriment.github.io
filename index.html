@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="home_title">Puno Digital | Turismo, Cultura y Gastronomía</title>
+  <meta name="description" data-i18n-attr="content" data-i18n="meta_description" content="Puno Digital es una plataforma web turística para conocer el lago Titicaca, la cultura aymara-quechua y la gastronomía tradicional de Puno.">
+  <meta property="og:title" data-i18n-attr="content" data-i18n="og_title" content="Puno Digital - Turismo de Puno">
+  <meta property="og:description" data-i18n-attr="content" data-i18n="og_description" content="Explora destinos, festividades y platos típicos de la región Puno en un sitio responsivo.">
+  <meta property="og:image" data-i18n-attr="content" data-i18n="og_image" content="images/Destinos/Lago Titicaca.jpg">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body data-page="home">
+  <header class="sticky-top bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light container py-3">
+      <a class="navbar-brand fw-bold text-primary" href="index.html">Puno Digital</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#destinos" data-i18n="nav_destinos">Destinos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cultura" data-i18n="nav_cultura">Cultura</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gastronomia" data-i18n="nav_gastronomia">Gastronomía</a></li>
+          <li class="nav-item"><a class="nav-link" href="html/pueblos.html" data-i18n="nav_pueblos">Pueblos</a></li>
+          <li class="nav-item"><a class="nav-link" href="html/itinerario.html" data-i18n="nav_itinerario">Itinerario</a></li>
+        </ul>
+        <button id="themeToggle" class="btn btn-outline-primary ms-3" type="button">Modo oscuro</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero bg-hero text-white text-center d-flex align-items-center">
+      <div class="container py-5">
+        <span class="badge bg-warning text-dark mb-3" data-i18n="badge_project">Proyecto UNAP | Ingeniería de Sistemas</span>
+        <h1 class="display-5 fw-bold" data-i18n="hero_title">Descubre Puno: turismo, cultura y gastronomía</h1>
+        <p class="lead mx-auto mt-3" style="max-width: 720px;" data-i18n="hero_subtitle">Una plataforma para conocer el lago Titicaca, las islas flotantes, festividades ancestrales y platos típicos del altiplano.</p>
+        <div class="mt-4">
+          <a href="html/destinos.html" class="btn btn-primary btn-lg me-2" data-i18n="button_view_destinos">Ver destinos</a>
+          <a href="html/gastronomia.html" class="btn btn-outline-light btn-lg" data-i18n="button_view_gastronomia">Ver gastronomía</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container py-5" id="destinos">
+      <div class="row align-items-center mb-4">
+        <div class="col-lg-7">
+          <h2 class="section-title" data-i18n="section_destinos_title">Destinos turísticos icónicos</h2>
+          <p class="text-muted" data-i18n="section_destinos_text">Explora lugares reales como las islas flotantes de los Uros, Taquile, Amantaní y Sillustani.</p>
+        </div>
+        <div class="col-lg-5 text-lg-end">
+          <a href="html/destinos.html" class="btn btn-outline-primary" data-i18n="button_go_destinos">Ir a destinos</a>
+        </div>
+      </div>
+      <div class="row g-4 align-items-stretch">
+        <div class="col-md-6 col-lg-4">
+          <article class="card shadow-sm card-hover h-100">
+            <img src="images/Destinos/Lago Titicaca.jpg" class="card-img-top" alt="Lago Titicaca">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5" data-i18n="card_lago_title">Lago Titicaca</h3>
+              <p class="card-text flex-grow-1" data-i18n="card_lago_desc">El lago navegable más alto del mundo, rodeado por pueblos indígenas y paisajes de montaña.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="card shadow-sm card-hover h-100">
+            <img src="images/Destinos/Islas UROS.jpeg" class="card-img-top" alt="Islas Uros">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5" data-i18n="card_uros_title">Islas Flotantes de los Uros</h3>
+              <p class="card-text flex-grow-1" data-i18n="card_uros_desc">Un paisaje único de totora y comunidades vivas en el corazón del lago Titicaca.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="card shadow-sm card-hover h-100">
+            <img src="images/Destinos/Sillustani.jpeg" class="card-img-top" alt="Sillustani">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5" data-i18n="card_sillustani_title">Sillustani</h3>
+              <p class="card-text flex-grow-1" data-i18n="card_sillustani_desc">Las torres funerarias preincaicas junto al lago Umayo crean un mirador arqueológico impresionante.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-light py-5" id="cultura">
+      <div class="container">
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-7">
+            <h2 class="section-title" data-i18n="section_cultura_title">Cultura viva de Puno</h2>
+            <p class="text-muted" data-i18n="section_cultura_text">Conoce las tradiciones que mantienen el altiplano, desde la diablada hasta el tejido andino.</p>
+          </div>
+          <div class="col-lg-5 text-lg-end">
+            <a href="html/cultura.html" class="btn btn-outline-primary" data-i18n="button_view_cultura">Ver cultura</a>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="feature-box p-4 h-100 shadow-sm feature-candelaria">
+              <h3 class="h6" data-i18n="feature_festividades_title">Festividades</h3>
+              <p data-i18n="feature_festividades_text">La Virgen de la Candelaria reúne miles de danzantes y músicos en una celebración de fe y folklore.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box p-4 h-100 shadow-sm feature-tierra">
+              <h3 class="h6" data-i18n="feature_danzas_title">Danzas típicas</h3>
+              <p data-i18n="feature_danzas_text">La morenada, diablada y caporales evocan historias de la región y el encuentro entre culturas.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box p-4 h-100 shadow-sm feature-azul">
+              <h3 class="h6" data-i18n="feature_textiles_title">Textiles andinos</h3>
+              <p data-i18n="feature_textiles_text">Los tejidos de lana y las prendas tradicionales muestran patrones y colores del altiplano.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="card border-0 shadow-sm" style="background: rgba(224,162,0,0.08);">
+              <div class="row g-0 align-items-center">
+                <div class="col-md-5">
+                  <img src="images/PueblosIndigenas/Pueblos de los Uros.jpg" class="img-fluid h-100 img-cover" alt="Pueblos originarios">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h3 class="h5 mb-2" data-i18n="card_pueblos_title">Conoce a los pueblos originarios</h3>
+                    <p class="mb-3 text-muted" data-i18n="card_pueblos_text">Descubre las historias de los quechua y aymara en Puno.</p>
+                    <a href="html/pueblos.html" class="btn btn-outline-primary" data-i18n="button_view_pueblos">Ver pueblos</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container py-5" id="gastronomia">
+      <div class="row align-items-center mb-4">
+        <div class="col-lg-7">
+          <h2 class="section-title" data-i18n="section_gastronomia_title">Gastronomía puneña</h2>
+          <p class="text-muted" data-i18n="section_gastronomia_text">Descubre sabores del altiplano con recetas ancestrales e ingredientes autóctonos.</p>
+        </div>
+        <div class="col-lg-5 text-lg-end">
+          <a href="html/gastronomia.html" class="btn btn-outline-primary" data-i18n="button_view_gastronomia_secondary">Ver gastronomía</a>
+        </div>
+      </div>
+      <div class="row g-4 align-items-stretch">
+        <div class="col-md-4">
+          <article class="card shadow-sm card-hover h-100">
+            <img src="images/Gastronomia/Cuy chactado.webp" class="card-img-top" alt="Cuy chactado">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5" data-i18n="dish_cuy_title">Cuy chactado</h3>
+              <p class="card-text flex-grow-1" data-i18n="dish_cuy_text">Una receta tradicional de Puno con sabor intenso y texturas fritas.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-4">
+          <article class="card shadow-sm card-hover h-100">
+            <img src="images/Gastronomia/Trucha Frita.jpg" class="card-img-top" alt="Trucha frita">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5" data-i18n="dish_trucha_title">Trucha frita</h3>
+              <p class="card-text flex-grow-1" data-i18n="dish_trucha_text">Del lago Titicaca a tu mesa, la trucha es un clásico fresco y jugoso.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-4">
+          <article class="card shadow-sm card-hover h-100">
+            <img src="images/Gastronomia/Api con Pastel.webp" class="card-img-top" alt="Api con pastel">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5" data-i18n="dish_api_title">Api con pastel</h3>
+              <p class="card-text flex-grow-1" data-i18n="dish_api_text">Una bebida de maíz morado que se sirve caliente junto a un pastel de trigo.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section text-white text-center py-5">
+      <div class="container">
+        <h2 class="mb-3" data-i18n="cta_title">Planifica tu viaje a Puno</h2>
+        <p class="mb-4" data-i18n="cta_text">Completa un itinerario personalizado con presupuesto estimado y recomendaciones de ruta.</p>
+        <a href="html/itinerario.html" class="btn btn-light btn-lg" data-i18n="button_create_itinerary">Crear itinerario</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark text-white py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div>© 2026 Puno Digital. Todos los derechos reservados.</div>
+      <div>
+        <a href="#" class="text-white me-3">Facebook</a>
+        <a href="#" class="text-white me-3">Instagram</a>
+        <a href="#" class="text-white">Twitter</a>
+      </div>
+      <div>Universidad Nacional del Altiplano - Puno</div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

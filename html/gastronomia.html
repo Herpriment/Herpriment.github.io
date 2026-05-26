@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="page_gastronomia_title">Gastronomía - Puno Digital</title>
+  <meta property="og:title" content="Gastronomía - Puno Digital" data-i18n="page_gastronomia_title" data-i18n-attr="content">
+  <meta property="og:description" content="Platos y productos tradicionales de Puno: cuy, trucha, chuño, quinoa y más." data-i18n="page_gastronomia_subtitle" data-i18n-attr="content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+</head>
+<body data-page="gastronomia">
+  <header class="sticky-top bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light container py-3">
+      <a class="navbar-brand fw-bold text-primary" href="../index.html">Puno Digital</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="destinos.html" data-i18n="nav_destinos">Destinos</a></li>
+          <li class="nav-item"><a class="nav-link" href="cultura.html" data-i18n="nav_cultura">Cultura</a></li>
+          <li class="nav-item"><a class="nav-link" href="gastronomia.html" data-i18n="nav_gastronomia">Gastronomía</a></li>
+          <li class="nav-item"><a class="nav-link" href="pueblos.html" data-i18n="nav_pueblos">Pueblos</a></li>
+          <li class="nav-item"><a class="nav-link" href="itinerario.html" data-i18n="nav_itinerario">Itinerario</a></li>
+        </ul>
+        <button id="themeToggle" class="btn btn-outline-primary ms-3" type="button">Modo oscuro</button>
+      </div>
+    </nav>
+  </header>
+  <main class="container py-5">
+    <h1 class="section-title" data-i18n="section_gastronomia_title">Gastronomía de Puno</h1>
+    <p class="text-muted" data-i18n="section_gastronomia_text">Platos tradicionales y recetas típicas.</p>
+    <div id="gastronomiaCards" class="row g-4"></div>
+
+    <!-- Modal receta -->
+    <div class="modal fade" id="recipeModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="recipeModalLabel" data-i18n="modal_recipe_title">Receta</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <img id="recipeModalImage" src="" alt="" class="img-fluid mb-3">
+            <h6 data-i18n="recipe_ingredients_title">Ingredientes</h6>
+            <ul id="recipeModalIngredients"></ul>
+            <h6 data-i18n="recipe_preparation_title">Preparación</h6>
+            <p id="recipeModalBody"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-dark text-white py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div>© 2026 Puno Digital. Todos los derechos reservados.</div>
+      <div>
+        <a href="#" class="text-white me-3">Facebook</a>
+        <a href="#" class="text-white me-3">Instagram</a>
+        <a href="#" class="text-white">Twitter</a>
+      </div>
+      <div>Universidad Nacional del Altiplano - Puno</div>
+    </div>
+  </footer>
+  <script src="../js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

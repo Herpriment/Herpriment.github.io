@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="page_pueblos_title">Pueblos originarios - Puno Digital</title>
+  <meta property="og:title" content="Pueblos originarios - Puno Digital" data-i18n="page_pueblos_title" data-i18n-attr="content">
+  <meta property="og:description" content="Historia y contribuciones culturales de los pueblos quechua y aymara en Puno." data-i18n="page_pueblos_subtitle" data-i18n-attr="content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+</head>
+<body data-page="pueblos">
+  <header class="sticky-top bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light container py-3">
+      <a class="navbar-brand fw-bold text-primary" href="../index.html">Puno Digital</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="destinos.html" data-i18n="nav_destinos">Destinos</a></li>
+          <li class="nav-item"><a class="nav-link" href="cultura.html" data-i18n="nav_cultura">Cultura</a></li>
+          <li class="nav-item"><a class="nav-link" href="gastronomia.html" data-i18n="nav_gastronomia">Gastronomía</a></li>
+          <li class="nav-item"><a class="nav-link" href="pueblos.html" data-i18n="nav_pueblos">Pueblos</a></li>
+          <li class="nav-item"><a class="nav-link" href="itinerario.html" data-i18n="nav_itinerario">Itinerario</a></li>
+        </ul>
+        <button id="themeToggle" class="btn btn-outline-primary ms-3" type="button">Modo oscuro</button>
+      </div>
+    </nav>
+  </header>
+  <main class="container py-5">
+    <h1 class="section-title" data-i18n="section_pueblos_title">Pueblos originarios: Quechua y Aymara</h1>
+    <p class="text-muted" data-i18n="section_pueblos_text">Breve introducción a su historia, lengua y contribuciones culturales al altiplano.</p>
+    <section class="row g-4 mt-4">
+      <div class="col-md-6">
+        <article class="card border-0 shadow-sm h-100 card-pueblo">
+          <img src="../images/PueblosIndigenas/Quechuas.jpg" class="card-img-top" height="400px" data-i18n="image_quechua_alt" data-i18n-attr="alt">
+          <div class="card-body">
+            <h1 data-i18n="pueblo_quechua_name">Quechua</h1>
+            <p data-i18n="pueblo_quechua_history_title">Historia</p>
+            <p data-i18n="pueblo_quechua_history_text">El pueblo quechua tiene sus raíces en las antiguas civilizaciones andinas y alcanzó gran desarrollo durante el Imperio Inca. Su lengua, el quechua, se convirtió en uno de los idiomas más difundidos de Sudamérica y aún hoy es hablada por millones de personas en Perú, Bolivia, Ecuador y otras regiones andinas.</p>
+            <p data-i18n="pueblo_quechua_contrib_title">Contribuciones culturales</p>
+              <p data-i18n="pueblo_quechua_contrib_text">Los quechuas destacaron por su avanzado sistema agrícola en terrazas, que permitió cultivar en zonas montañosas del altiplano. También desarrollaron conocimientos sobre irrigación, conservación de alimentos y arquitectura en piedra. Su tradición textil refleja símbolos de identidad, cosmovisión y conexión con la naturaleza. Además, preservaron una rica tradición oral transmitida mediante mitos, leyendas y música andina.</p>
+          </div>
+        </article>
+      </div>
+      <div class="col-md-6">
+        <article class="card border-0 shadow-sm h-100 card-pueblo card-aymara">
+          <img src="../images/PueblosIndigenas/Aymaras.webp" class="card-img-top" height="400px" data-i18n="image_aymara_alt" data-i18n-attr="alt">
+          <div class="card-body">
+            <h1 data-i18n="pueblo_aymara_name">Aymara</h1>
+            <p data-i18n="pueblo_aymara_history_title">Historia</p>
+            <p data-i18n="pueblo_aymara_history_text">El pueblo aymara habita principalmente en la región del altiplano alrededor del Lago Titicaca. Su cultura se desarrolló antes del Imperio Inca y logró mantener gran parte de sus costumbres, idioma y organización comunitaria a través del tiempo. Actualmente, los aymaras continúan siendo una de las culturas originarias más importantes de los Andes.</p>
+            <p data-i18n="pueblo_aymara_contrib_title">Contribuciones culturales</p>
+            <p data-i18n="pueblo_aymara_contrib_text">Los aymaras son reconocidos por su fuerte organización comunitaria basada en la cooperación y el trabajo colectivo. Han desarrollado conocimientos astronómicos y agrícolas adaptados a las condiciones extremas del altiplano. También destacan en la crianza de camélidos como alpacas y llamas, así como en la elaboración de tejidos artesanales y ceremonias vinculadas a la Pachamama.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-dark text-white py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div data-i18n="footer_copyright">© 2026 Puno Digital. Todos los derechos reservados.</div>
+      <div>
+        <a href="#" class="text-white me-3" data-i18n="social_facebook">Facebook</a>
+        <a href="#" class="text-white me-3" data-i18n="social_instagram">Instagram</a>
+        <a href="#" class="text-white" data-i18n="social_twitter">Twitter</a>
+      </div>
+      <div data-i18n="footer_unap">Universidad Nacional del Altiplano - Puno</div>
+    </div>
+  </footer>
+  <script src="../js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

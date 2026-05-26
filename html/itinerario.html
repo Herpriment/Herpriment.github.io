@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="page_title">Itinerario - Puno Digital</title>
+  <meta property="og:title" content="Itinerario - Puno Digital" data-i18n="page_title" data-i18n-attr="content">
+  <meta property="og:description" content="Crea y personaliza tu itinerario de viaje por Puno." data-i18n="page_subtitle" data-i18n-attr="content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+</head>
+<body data-page="itinerario">
+  <header class="sticky-top bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light container py-3">
+      <a class="navbar-brand fw-bold text-primary" href="../index.html">Puno Digital</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="destinos.html" data-i18n="nav_destinos">Destinos</a></li>
+          <li class="nav-item"><a class="nav-link" href="cultura.html" data-i18n="nav_cultura">Cultura</a></li>
+          <li class="nav-item"><a class="nav-link" href="gastronomia.html" data-i18n="nav_gastronomia">Gastronomía</a></li>
+          <li class="nav-item"><a class="nav-link" href="pueblos.html" data-i18n="nav_pueblos">Pueblos</a></li>
+          <li class="nav-item"><a class="nav-link" href="itinerario.html" data-i18n="nav_itinerario">Itinerario</a></li>
+        </ul>
+        <button id="themeToggle" class="btn btn-outline-primary ms-3" type="button">Modo oscuro</button>
+      </div>
+    </nav>
+  </header>
+  <main class="container py-5">
+    <h1 class="section-title" data-i18n="page_title">Crea tu itinerario</h1>
+    <p class="text-muted" data-i18n="page_subtitle">Completa los datos y genera un itinerario. Después podrás pagar para confirmar (simulado).</p>
+
+    <!-- Tabla de precios por destino y clases -->
+    <section id="priceTableSection" class="mb-4">
+      <h4 class="mb-3" data-i18n="choose_class">Elige clase y confirma precio</h4>
+      <div class="table-responsive">
+        <table id="priceTable" class="table align-middle">
+          <thead>
+            <tr>
+              <th data-i18n="table_header_class">Clase</th>
+              <th data-i18n="table_header_price">Precio por día (S/)</th>
+              <th data-i18n="table_header_total">Total (según días y personas)</th>
+              <th data-i18n="table_header_select">Seleccionar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tier-carton">
+              <td data-i18n="class_economico">Económico</td>
+              <td id="priceCarton">-</td>
+              <td id="totalCarton">-</td>
+              <td><button type="button" class="btn btn-sm btn-carton select-tier" data-i18n="button_select">Seleccionar</button></td>
+            </tr>
+            <tr class="tier-plata">
+              <td data-i18n="class_estandar">Estándar</td>
+              <td id="pricePlata">-</td>
+              <td id="totalPlata">-</td>
+              <td><button type="button" class="btn btn-sm btn-plata select-tier" data-i18n="button_select">Seleccionar</button></td>
+            </tr>
+            <tr class="tier-diamante">
+              <td data-i18n="class_lujoso">Lujoso</td>
+              <td id="priceDiamante">-</td>
+              <td id="totalDiamante">-</td>
+              <td><button type="button" class="btn btn-sm btn-diamante select-tier" data-i18n="button_select">Seleccionar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <form id="itinerarioForm" class="row g-3 needs-validation" novalidate>
+      <div class="col-md-6">
+        <label for="name" class="form-label" data-i18n="label_name">Nombre completo</label>
+        <input type="text" class="form-control" id="name" required>
+        <div class="invalid-feedback" data-i18n="invalid_name">Ingresa un nombre válido sin el carácter '@'.</div>
+      </div>
+      <div class="col-md-6">
+        <label for="email" class="form-label" data-i18n="label_email">Correo electrónico</label>
+        <input type="email" class="form-control" id="email" required>
+        <div class="invalid-feedback" data-i18n="invalid_email">Ingresa un correo válido que incluya '@'.</div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="destination" class="form-label" data-i18n="label_destination">Destino preferido</label>
+        <input list="destinosList" class="form-control" id="destination" placeholder="Elige un sitio..." data-i18n="placeholder_destination" data-i18n-attr="placeholder" required>
+        <datalist id="destinosList"></datalist>
+        <div class="invalid-feedback" data-i18n="invalid_destination">Selecciona o escribe un destino válido.</div>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label" data-i18n="label_class">Clase</label>
+        <!-- El select se reemplaza por un input oculto. La selección se hace desde la tabla de precios. -->
+        <input type="hidden" id="classSelect" name="classSelect">
+        <div class="form-control-plaintext" aria-live="polite"><span id="classDisplay" data-i18n="class_selected_prefix">Seleccionada: </span><strong id="classText">-</strong></div>
+        <div id="classInvalid" class="invalid-feedback visually-hidden" data-i18n="invalid_class">Selecciona una clase.</div>
+      </div>
+
+      <div class="col-md-3">
+        <label for="people" class="form-label" data-i18n="label_people">Número de personas</label>
+        <input type="number" class="form-control" id="people" min="1" max="50" value="1" required>
+        <div class="invalid-feedback" data-i18n="invalid_people">Indica al menos 1 persona.</div>
+      </div>
+
+      <div class="col-md-3">
+        <label for="days" class="form-label" data-i18n="label_days">Días</label>
+        <input type="number" class="form-control" id="days" min="1" max="30" value="3" required>
+      </div>
+
+      <div class="col-md-3 d-flex align-items-end">
+        <div id="budgetEstimate" class="w-100 text-end text-muted" data-i18n="budget_prefix">Monto total a pagar: -</div>
+        <button class="btn btn-primary w-100 mt-2" id="generateItinerary" type="submit" data-i18n="button_generate">Generar itinerario</button>
+      </div>
+    </form>
+
+    <section id="itineraryResult" class="mt-4"></section>
+
+    <!-- Modal pago -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" data-i18n="modal_payment_title">Pago del itinerario</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <form id="paymentForm" class="needs-validation" novalidate>
+              <div class="mb-3">
+                <label class="form-label" data-i18n="label_card_name">Nombre en la tarjeta</label>
+                <input type="text" id="cardName" class="form-control" required>
+                <div class="invalid-feedback" data-i18n="invalid_card_name">Nombre requerido.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" data-i18n="label_card_number">Número de tarjeta</label>
+                <input type="text" id="cardNumber" class="form-control" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456" required>
+                <div class="invalid-feedback" data-i18n="invalid_card_number">Número de 16 dígitos.</div>
+              </div>
+              <div class="row">
+                <div class="col-6 mb-3">
+                  <label class="form-label" data-i18n="label_exp">Expiración (MM/AA)</label>
+                  <input type="text" id="exp" class="form-control" placeholder="04/26" required>
+                  <div class="invalid-feedback" data-i18n="invalid_exp">Formato MM/AA.</div>
+                </div>
+                <div class="col-6 mb-3">
+                  <label class="form-label" data-i18n="label_cvv">CVV</label>
+                  <input type="text" id="cvv" class="form-control" maxlength="4" inputmode="numeric" required>
+                  <div class="invalid-feedback" data-i18n="invalid_cvv">CVV de 3 ó 4 dígitos.</div>
+                </div>
+              </div>
+              <div class="text-end">
+                <button type="submit" class="btn btn-success" data-i18n="button_confirm_payment">Confirmar pago</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <footer class="bg-dark text-white py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div data-i18n="footer_copyright">© 2026 Puno Digital. Todos los derechos reservados.</div>
+      <div>
+        <a href="https://www.facebook.com/marc.nayra.39?locale=es_LA" class="text-white me-3" data-i18n="social_facebook">Facebook</a>
+        <a href="https://www.instagram.com/a_a_marc_a_a.39?locale=es_LA" class="text-white me-3" data-i18n="social_instagram">Instagram</a>
+        <a href="https://twitter.com/marc.nayra.39?locale=es_LA" class="text-white" data-i18n="social_twitter">Twitter</a>
+      </div>
+      <div data-i18n="footer_unap">Universidad Nacional del Altiplano - Puno</div>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

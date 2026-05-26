@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Nunito', Arial, sans-serif;
+  background: var(--blanco);
+  color: var(--texto);
+}
+main {
+  flex: 1;
+}
+body.dark {
+  background: #10121a;
+  color: #e7e7e7;
+}
+body.dark .bg-light {
+  background: #151a28 !important;
+}
+body.dark .card,
+body.dark .feature-box,
+body.dark .accordion-button,
+body.dark .accordion-body {
+  background: #171d2b;
+  color: #f1f1f1;
+}
+body.dark .navbar,
+body.dark footer,
+body.dark .bg-dark,
+body.dark .bg-white {
+  background: #10121a !important;
+}
+body.dark .text-muted {
+  color: #b4b4b4 !important;
+}
+body.dark a {
+  color: #aad4ff;
+}
+body.dark .btn-outline-primary {
+  color: #ffffff;
+  border-color: #4d7baf;
+}
+body.dark .btn-outline-primary:hover {
+  background: rgba(77, 123, 175, 0.15);
+}
+.navbar-brand,
+.nav-link,
+.section-title,
+.card-title,
+.feature-box h3,
+footer p,
+footer small {
+  font-family: 'Quicksand', Arial, sans-serif;
+}
+.navbar {
+  transition: background-color 0.3s ease;
+}
+.nav-link {
+  color: #2b2b2b;
+}
+.nav-link:hover,
+.navbar-brand:hover {
+  color: var(--titicaca);
+}
+.navbar-brand {
+  color: var(--titicaca);
+}
+.navbar .btn-outline-primary {
+  border-color: var(--titicaca);
+  color: var(--titicaca);
+}
+.navbar .btn-outline-primary:hover {
+  background: rgba(31,94,139,0.08);
+}
+.btn-outline-light {
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.85);
+}
+.btn-outline-light:hover {
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+}
+.btn-primary {
+  color: #ffffff;
+  background: linear-gradient(90deg,var(--titicaca),var(--candelaria));
+  border: none;
+  box-shadow: var(--shadow-soft);
+}
+.btn-primary:hover {
+  opacity: 0.95;
+}
+body[data-page="gastronomia"] .btn-primary {
+  background: linear-gradient(90deg, rgba(139,54,38,0.95), rgba(224,162,0,0.95));
+}
+/* Tiers de precios: económico, estándar, lujoso (clases visibles) */
+.tier-carton {
+  background: linear-gradient(90deg, rgba(139,54,38,0.06), rgba(139,54,38,0.03));
+  border-left: 4px solid #8B4513;
+}
+.tier-plata {
+  background: linear-gradient(90deg, rgba(192,192,192,0.08), rgba(192,192,192,0.03));
+  border-left: 4px solid #C0C0C0;
+}
+.tier-diamante {
+  background: linear-gradient(90deg, rgba(179,229,252,0.08), rgba(179,229,252,0.03));
+  border-left: 4px solid #9AD7F5;
+}
+.btn-carton {
+  background: #8B4513;
+  color: #fff;
+  border: none;
+}
+.btn-plata {
+  background: #C0C0C0;
+  color: #111;
+  border: none;
+}
+.btn-diamante {
+  background: linear-gradient(90deg,#9AD7F5,#4DB3E6);
+  color: #052A37;
+  border: none;
+}
+.select-tier.active {
+  box-shadow: 0 6px 18px rgba(31,94,139,0.12);
+}
+
+/* Dark mode overrides for price table */
+body.dark .tier-carton {
+  background: linear-gradient(90deg, rgba(139,54,38,0.18), rgba(139,54,38,0.08));
+  color: #ffffff;
+  border-left-color: #6b2f0f;
+}
+body.dark .tier-plata {
+  background: linear-gradient(90deg, rgba(80,80,80,0.12), rgba(60,60,60,0.06));
+  color: #ffffff;
+  border-left-color: #8f8f8f;
+}
+body.dark .tier-diamante {
+  background: linear-gradient(90deg, rgba(20,60,80,0.12), rgba(10,30,50,0.06));
+  color: #eaf6fc;
+  border-left-color: #4db3e6;
+}
+body.dark .btn-carton { background: #6b2f0f; color: #fff; }
+body.dark .btn-plata { background: #6c6c6c; color: #fff; }
+body.dark .btn-diamante { background: linear-gradient(90deg,#4DB3E6,#2b97c6); color: #fff; }
+body[data-page="destinos"] .btn-outline-primary {
+  color: var(--titicaca);
+  border-color: var(--titicaca);
+}
+body[data-page="destinos"] .btn-primary {
+  color: #ffffff;
+  background: linear-gradient(90deg, rgba(31,94,139,0.95), rgba(31,94,139,0.75));
+}
+body[data-page="cultura"] .btn-primary {
+  background: linear-gradient(90deg, rgba(224,162,0,0.95), rgba(224,162,0,0.7));
+}
+.badge.bg-primary {
+  background: linear-gradient(90deg, rgba(31,94,139,0.95), rgba(224,162,0,0.95));
+  color: #fff;
+}
+#map {
+  min-height: 360px;
+  border-radius: 20px;
+  border: 1px solid var(--borde);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Tabla itinerario: clase que fuerza fondo negro y texto blanco (se aplica vía JS) */
+#priceTable.itinerary-dark,
+#priceTable.itinerary-dark tbody,
+#priceTable.itinerary-dark tr,
+#priceTable.itinerary-dark td,
+#priceTable.itinerary-dark th,
+#priceTable.itinerary-dark thead {
+  background: #000 !important;
+  color: #fff !important;
+}
+#priceTable.itinerary-dark td,
+#priceTable.itinerary-dark th {
+  background: #000 !important;
+  color: #fff !important;
+  border-color: #222 !important;
+}
+#priceTable.itinerary-dark .btn {
+  box-shadow: none;
+}
+
+/* Asegurar que el display de clase y presupuesto sean legibles en modo oscuro */
+body.dark #classDisplay,
+body.dark #classDisplay strong,
+body.dark #budgetEstimate {
+  color: #fff !important;
+}
+.hero {
+  min-height: 80vh;
+  background-image: linear-gradient(180deg, rgba(27, 95, 139, 0.85), rgba(27, 95, 139, 0.52)), url('../images/Ciudad de Puno.webp');
+  background-size: cover;
+  background-position: center;
+}
+.section-title {
+  font-size: clamp(1.9rem, 2.4vw, 2.6rem);
+  font-weight: 700;
+}
+.feature-box {
+  background: var(--blanco);
+  border-radius: var(--radius);
+  border: 1px solid var(--borde);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+.feature-candelaria:hover {
+  background: rgba(224,162,0,0.15);
+  border-color: rgba(224,162,0,0.5);
+}
+.feature-tierra:hover {
+  background: rgba(139,54,38,0.12);
+  border-color: rgba(139,54,38,0.35);
+}
+.feature-azul:hover {
+  background: rgba(31,94,139,0.1);
+  border-color: rgba(31,94,139,0.35);
+}
+.card-pueblo img,
+.card-pueblo .list-group-item {
+  border-radius: 0;
+}
+.card-pueblo {
+  overflow: hidden;
+}
+.card-aymara {
+  background: rgba(224,162,0,0.08);
+}
+.card-pueblo img {
+  min-height: 220px;
+  object-fit: cover;
+}
+.card-pueblo .list-group-item {
+  border: none;
+  background: transparent;
+  padding-left: 0;
+}
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+  border: 1px solid rgba(31,94,139,0.08);
+}
+.card {
+  border: none;
+  border-radius: 22px;
+  box-shadow: 0 6px 18px rgba(31,94,139,0.04);
+}
+.card-destino {
+  border: 1px solid rgba(31,94,139,0.18);
+}
+.card-gastronomia {
+  border: 1px solid rgba(139,54,38,0.18);
+  background: rgba(139,54,38,0.05);
+}
+.card-cultura {
+  border: 1px solid rgba(224,162,0,0.25);
+  background: rgba(224,162,0,0.08);
+}
+.card-img-top {
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+  object-fit: cover;
+  min-height: 220px;
+  box-shadow: inset 0 -40px 80px rgba(0,0,0,0.06);
+}
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+body[data-page="cultura"] .card-cultura {
+  background: rgba(224,162,0,0.08);
+}
+body[data-page="gastronomia"] .card-gastronomia {
+  border-color: rgba(139,54,38,0.3);
+}
+body[data-page="destinos"] .card-destino {
+  background: rgba(31,94,139,0.04);
+}
+.cta-section {
+  background: linear-gradient(135deg, rgba(31,94,139,0.95), rgba(224,162,0,0.9));
+}
+.cta-section a {
+  min-width: 220px;
+}
+footer {
+  background: #121318;
+}
+footer p,
+footer small {
+  margin: 0;
+}
+.accordion-button {
+  border-radius: 14px;
+}
+#map {
+  min-height: 360px;
+  border-radius: 20px;
+  border: 1px solid var(--borde);
+}
+@media (max-width: 768px) {
+  .hero {
+    min-height: 60vh;
+  }
+}
+@media (max-width: 576px) {
+  .navbar .btn {
+    width: 100%;
+    margin-top: 0.75rem;
+  }
+}
